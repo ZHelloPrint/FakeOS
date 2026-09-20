@@ -1,0 +1,32 @@
+document.addEventListener("DOMContentLoaded", () => {
+  const bootScreen = document.getElementById("boot-screen");
+  const desktop = document.getElementById("desktop");
+  const lockScreen = document.getElementById("lock-screen");
+  
+  // Simulate boot process
+  setTimeout(() => {
+    bootScreen.style.opacity = 0;
+    setTimeout(() => {
+      bootScreen.classList.remove("active");
+      bootScreen.classList.add("hidden");
+      desktop.classList.remove("hidden");
+      // Initialize desktop
+      initDesktop();
+    }, 1000);
+  }, 3000); // Boot duration
+
+  // Check lock state from localStorage
+  if (localStorage.getItem("csosLocked") === "true") {
+    showLockScreen();
+  }
+});
+
+function showLockScreen() {
+  document.getElementById("lock-screen").classList.remove("hidden");
+}
+
+function unlockCSOS() {
+  document.getElementById("lock-screen").classList.add("hidden");
+  localStorage.setItem("csosLocked", "false");
+  // Additional init if needed
+}
