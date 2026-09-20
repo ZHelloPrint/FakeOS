@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+<title>CSOS - Futuristic Browser OS</title>
+<link rel="stylesheet" href="css/style.css" />
+</head>
+<body>
+<div id="boot-screen" class="boot-screen active">
+  <div class="logo">CSOS</div>
+  <div class="loading-indicator"></div>
+</div>
+
+<div id="desktop" class="desktop hidden">
+  <!-- System Bar -->
+  <div class="system-bar">
+    <div class="clock" id="system-clock"></div>
+    <div class="status-icons">
+      <div class="wifi-status">Wi-Fi</div>
+      <div class="volume-status">Volume</div>
+      <div class="battery-status">Battery</div>
+    </div>
+    <div class="system-time" id="system-time"></div>
+  </div>
+  
+  <!-- Desktop Icons -->
+  <div class="desktop-icons" id="desktop-icons"></div>
+  
+  <!-- Bottom Dock -->
+  <div class="dock" id="dock"></div>
+</div>
+
+<!-- Window Manager Container -->
+<div id="window-container"></div>
+
+<!-- Lock Screen -->
+<div id="lock-screen" class="lock-screen hidden">
+  <div class="lock-content">
+    <div class="lock-time" id="lock-time"></div>
+    <div class="lock-date" id="lock-date"></div>
+    <button id="unlock-btn">Unlock</button>
+  </div>
+</div>
+
+<script src="js/core.js"></script>
+<script src="js/desktop.js"></script>
+<script src="js/windowManager.js"></script>
+<script src="js/apps/browser.js"></script>
+<script src="js/apps/calculator.js"></script>
+<!-- Add other apps as needed -->
+</body>
+</html>
