@@ -1,0 +1,26 @@
+function initDesktop() {
+  // Setup clock
+  const clockEl = document.getElementById("system-clock");
+  setInterval(() => {
+    const now = new Date();
+    clockEl.textContent = now.toLocaleTimeString();
+  }, 1000);
+
+  // Example icon
+  const desktopIcons = document.getElementById("desktop-icons");
+  const browserIcon = document.createElement("div");
+  browserIcon.className = "icon";
+  browserIcon.innerHTML = "🌐<br>Browser";
+  browserIcon.onclick = () => {
+    openApp("browser");
+  };
+  desktopIcons.appendChild(browserIcon);
+
+  // Initialize dock, apps, etc.
+}
+
+// Open app window
+function openApp(appName) {
+  // Create window, invoke app module
+  WindowManager.openWindow(appName);
+}
