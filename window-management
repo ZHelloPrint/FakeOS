@@ -1,0 +1,40 @@
+const WindowManager = {
+  zIndex: 100,
+  openWindow: function(appName) {
+    const appModule = window[appName];
+    if (!appModule) return;
+    const win = document.createElement("div");
+    win.className = "window";
+    win.style.zIndex = ++this.zIndex;
+    win.innerHTML = `
+      <div class="window-header">
+        <div class="window-title">${appName}</div>
+        <div class="window-controls">
+          <button class="minimize">_</button>
+          <button class="close">&times;</button>
+        </div>
+      </div>
+      <div class="window-content"></div>
+    `;
+    document.getElementById("window-container").appendChild(win);
+    // Initialize app inside content
+    const content = win.querySelector(".window-content");
+    appModule.init(content, win);
+    // Add drag, resize, focus handling
+    makeDraggable(win);
+    makeResizable(win);
+    focusWindow(win);
+  }
+};
+
+function makeDraggable(win) {
+  // Implement drag logic
+}
+
+function makeResizable(win) {
+  // Implement resize logic
+}
+
+function focusWindow(win) {
+  // Bring to front
+}
